@@ -2,6 +2,10 @@
 
 # prereq : oc login is required to execuete this shell
 #          mvn, ant program and shell PATH environment variable to execute it.
+#          kubeadmin
+
+binDir=`dirname ${0}`
+${binDir}/help-kubeadmin.sh
 
 oc registry login
 docker login `oc registry info`
@@ -14,7 +18,7 @@ cd guide-cloud-openshift/start
 # setup mvn and ant 
 #
 
-mvn pakcage
+/opt/mvn/bin/mvn package
 
 # pull openliberty docker repository
 docker pull openliberty/open-liberty:kernel-java8-openj9-ubi
