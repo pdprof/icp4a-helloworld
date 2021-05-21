@@ -25,5 +25,5 @@ sed -i s/"\[project-name\]"/$(oc project -q)/g twas-kubernetes.yaml
 sed -i s/"\[was-version\]"/${WAS_VERSION}/g twas-kubernetes.yaml
 
 oc create secret generic docker-user-secret --from-file=.dockerconfigjson=$HOME/.docker/config.json --type=kubernetes.io/dockerconfigjson
-oc apply -f kubernetes.yaml
+oc apply -f twas-kubernetes.yaml
 
