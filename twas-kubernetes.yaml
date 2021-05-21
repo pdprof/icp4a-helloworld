@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: twas-deployment
+  labels:
+    app: twas
+spec:
+  selector:
+    matchLabels:
+      app: twas
+  template:
+    metadata:
+      labels:
+        app: twas
+    spec:
+      containers:
+      - name: twas-container
+        image: default-route-openshift-image-registry.apps-crc.testing/[project-name]/websphere-traditional:[was-version]
+        ports:
+        - containerPort: 9080
+      imagePullSecrets:
+      - name: docker-user-secret
+--- 
+apiVersion: v1
+kind: Service
+metadata:
+  name: twas-service
+spec:
+  selector:
+    app: twas
+  ports:
+  - protocol: TCP
+    port: 9080
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: twas-route
+spec:
+  to:
+    kind: Service
+    name: twas-service
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: twas-admin-service
+spec:
+  selector:
+    app: twas
+  ports:
+  - protocol: TCP
+    port: 9043
+---
+apiVersion: v1
+kind: Route
+metadata:
+  name: twas-admin-route
+spec:
+  to:
+    kind: Service
+    name: twas-admin-service
+
