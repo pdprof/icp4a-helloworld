@@ -7,6 +7,8 @@
 binDir=`dirname ${0}`
 ${binDir}/help-kubeadmin.sh
 
+$HOME/kubeadmin
+
 oc registry login
 docker login `oc registry info`
 
