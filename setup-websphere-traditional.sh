@@ -19,9 +19,10 @@ docker pull ibmcom/websphere-traditional:${WAS_VERSION}
 
 cd websphere-traditional
 
-#docker tag ibmcom/websphere-traditional:${WAS_VERSION} $(oc registry info)/$(oc project -q)/websphere-traditional:${WAS_VERSION}
+docker tag ibmcom/websphere-traditional:${WAS_VERSION} $(oc registry info)/$(oc project -q)/websphere-traditional:${WAS_VERSION}
 
-#docker push $(oc registry info)/$(oc project -q)/websphere-traditional:${WAS_VERSION}
+docker push $(oc registry info)/$(oc project -q)/websphere-traditional:${WAS_VERSION}
+sed -i s/"\[was-version\]"/${WAS_VERSION}/g Dockerfile
 
 sed -i s/image-registry.openshift-image-registry.svc:5000/default-route-openshift-image-registry.apps-crc.testing/g kubernetes.yaml
 sed -i s/"\[project-name\]"/$(oc project -q)/g kubernetes.yaml
