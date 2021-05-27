@@ -17,6 +17,7 @@ spec:
       - name: twas-container
         image: image-registry.openshift-image-registry.svc:5000/[project-name]/websphere-traditional:[was-version]
         ports:
+        - containerPort: 9060
         - containerPort: 9080
       imagePullSecrets:
       - name: docker-user-secret
@@ -51,8 +52,8 @@ spec:
     app: twas
   ports:
   - protocol: TCP
-    port: 9043
-    targetPort: 9043
+    port: 9060
+    targetPort: 9060
 ---
 apiVersion: v1
 kind: Route

@@ -1,0 +1,2 @@
+securityoff()
+AdminConfig.save()
