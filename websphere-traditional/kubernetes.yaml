@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: twas-container
-        image: default-route-openshift-image-registry.apps-crc.testing/[project-name]/websphere-traditional:[was-version]
+        image: image-registry.openshift-image-registry.svc:5000/[project-name]/websphere-traditional:[was-version]
         ports:
         - containerPort: 9080
       imagePullSecrets:
