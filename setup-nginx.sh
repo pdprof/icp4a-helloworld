@@ -6,7 +6,7 @@
 #                      shell environment variables are required to execute crc and oc.
 flag=`rpm -qa | grep nginx | wc -l`
 
-if [ flag -lt 1 ]; then 
+if [ $flag -lt 1 ]; then 
      echo ""
      echo "Please install nginx with command yum -y install nginx"
      echo ""
