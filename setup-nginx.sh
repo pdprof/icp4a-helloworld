@@ -14,8 +14,13 @@ if [ $flag -lt 1 ]; then
 fi
 
 # Copy reverse proxy setting to host
-sed -i s/"\[crc-ip\]"/$(crc ip)/g host-nginx/server.conf
-sudo cp host-nginx/server.conf /etc/nginx/conf.d/
+cd host-nginx
+sed -i s/"\[crc-ip\]"/$(crc ip)/g server.conf
+sed -i s/"\[crc-ip\]"/$(crc ip)/g ssl.conf
+
+openssl req -x509 -newkey rsa:4096 -keyout ssl.key -out ssl.crt -days 3650 -subj '/CN=*.apps-crc.testing'
+
+sudo cp server.conf ssl.conf ssl.key ssl.crt /etc/nginx/conf.d/
 
 # Enable and start nginx 
 sudo systemctl enable nginx
