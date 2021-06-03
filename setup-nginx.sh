@@ -18,10 +18,21 @@ cd host-nginx
 sed -i s/"\[crc-ip\]"/$(crc ip)/g server.conf
 sed -i s/"\[crc-ip\]"/$(crc ip)/g ssl.conf
 
-openssl req -x509 -newkey rsa:4096 -keyout ssl.key -out ssl.crt -days 3650 -subj '/CN=*.apps-crc.testing'
+echo "================"
+echo ""
+echo "Input password for ssl key"
+echo ""
+echo "================"
+openssl req -x509 -newkey rsa:4096 -keyout ssl-pass.key -out ssl.crt -days 3650 -subj '/CN=*.apps-crc.testing'
+echo "================"
+echo ""
+echo "Input password for ssl key, again to remove password from ssl key"
+echo ""
+echo "================"
+openssl rsa -in ssl-pass.key -out ssl.key
 
 sudo cp server.conf ssl.conf ssl.key ssl.crt /etc/nginx/conf.d/
 
 # Enable and start nginx 
 sudo systemctl enable nginx
-sudo systemctl start nginx
+sudo systemctl restart nginx
