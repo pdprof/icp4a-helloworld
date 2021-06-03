@@ -67,4 +67,10 @@ vi $HOME/kubeadmin
 
 In this step, you need to update kubeadmin shell script to login openshift.
 
+### Delploy websphere-traditional
 
+You can issue ./setup-webphere-traditional.sh script instead of setup-openliberty.sh
+
+```
+./setup-websphere-traditional.sh
+```
