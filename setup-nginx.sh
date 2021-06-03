@@ -15,7 +15,7 @@ fi
 
 # Copy reverse proxy setting to host
 sed -i s/\[crc-ip\]/$(crc ip)/g host-nginx/server.conf
-cp host-nginx/server.conf /etc/nginx/conf.d/
+sudo cp host-nginx/server.conf /etc/nginx/conf.d/
 
 # Enable and start nginx 
 sudo systemctl enable nginx
