@@ -55,6 +55,7 @@ Click > Install OpenShift on your laptop
 
 3. Paste it to file ~/pull-secret.txt 
 
+## Setup CRC
 
 ### Start CRC and Deploy liberty
 
@@ -66,6 +67,15 @@ vi $HOME/kubeadmin
 ```
 
 In this step, you need to update kubeadmin shell script to login openshift.
+
+setup-openlibery.sh is based on 
+[Deploying microservices to OpenShift](https://openliberty.io/guides/cloud-openshift.html#pushing-the-images-to-openshifts-internal-registry)
+
+You can access to liberty through following links.
+
+[system](http://system-route-default.apps-crc.testing/system/properties/)
+[inventory](http://inventory-route-default.apps-crc.testing/inventory/systems)
+
 
 ### Delploy websphere-traditional
 
