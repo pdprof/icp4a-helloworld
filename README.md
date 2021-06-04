@@ -74,6 +74,7 @@ setup-openlibery.sh is based on
 You can access to liberty through following links.
 
 [system](http://system-route-default.apps-crc.testing/system/properties/)
+
 [inventory](http://inventory-route-default.apps-crc.testing/inventory/systems)
 
 
@@ -84,3 +85,47 @@ You can issue ./setup-webphere-traditional.sh script instead of setup-openlibert
 ```
 ./setup-websphere-traditional.sh
 ```
+
+You can access to admin console through following links.
+
+[console](http://twas-admin-route-default.apps-crc.testing/ibm/console)
+
+
+## Setup client access (If it is needed)
+
+### Start httpd or nginx on HOST
+
+- Option.1
+Setup forward proxy and reverse proxy
+```
+./setup-httpd.sh
+```
+
+- Option.2
+Use reverse proxy
+```
+./setup-nginx.sh
+```
+
+### Configure browser to use forward proxy 
+
+If you change the proxy setting when you want to use CRC. That's the simple solution.
+
+
+### Configure hosts file or DNS to use reverse proxy 
+
+- hosts 
+
+add required host name to /etc/hosts
+
+Edit your /etc/hosts (file path and name depends on client OS)
+
+Example.. If VM host ip is 192.168.10.25
+```
+192.168.10.25 system-route-default.apps-crc.testing
+```
+Please change IP address and hostname with your configuration.
+
+- dnsmasq
+
+https://hirocks.jp/docker%E3%81%A7dnsmasq%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AF%E3%82%A4%E3%83%AB%E3%83%89%E3%82%AB%E3%83%BC%E3%83%89%E3%81%A7%E3%82%B5%E3%83%96%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92/
