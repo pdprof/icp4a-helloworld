@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: twas-container
-        image: image-registry.openshift-image-registry.svc:5000/[project-name]/websphere-traditional:[was-version]
+        image: image-registry.openshift-image-registry.svc:5000/[project-name]/twas-my-base:[was-version]
         ports:
         - containerPort: 9060
         - containerPort: 9080
