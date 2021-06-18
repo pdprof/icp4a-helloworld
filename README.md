@@ -107,6 +107,15 @@ Use reverse proxy
 ./setup-nginx.sh
 ```
 
+- Setup firewall
+
+Please allow access to http and https.
+```
+firewall-cmd --permanent --zone=public --add-service=http 
+firewall-cmd --permanent --zone=public --add-service=https
+firewall-cmd --reload
+```
+
 ### Configure browser to use forward proxy 
 
 If you change the proxy setting when you want to use CRC. That's the simple solution.
