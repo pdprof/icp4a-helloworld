@@ -93,15 +93,21 @@ You can access to admin console through following links.
 
 ## Setup client access (If it is needed)
 
-### Start httpd or nginx on HOST
+### Start haproxy, httpd or nginx on HOST
 
 - Option.1
+Setup haproxy (tcp proxy)
+```
+./setup-haproxy.sh
+```
+
+- Option.2
 Setup forward proxy and reverse proxy
 ```
 ./setup-httpd.sh
 ```
 
-- Option.2
+- Option.3
 Use reverse proxy
 ```
 ./setup-nginx.sh
@@ -136,5 +142,5 @@ Example.. If VM host ip is 192.168.10.25
 Please change IP address and hostname with your configuration.
 
 - dnsmasq
-
-https://hirocks.jp/docker%E3%81%A7dnsmasq%E3%82%92%E4%BD%BF%E3%81%A3%E3%81%A6%E3%83%AF%E3%82%A4%E3%83%AB%E3%83%89%E3%82%AB%E3%83%BC%E3%83%89%E3%81%A7%E3%82%B5%E3%83%96%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92/
+Detail DNS setup is described at RedHat document.
+https://access.redhat.com/documentation/en-us/red_hat_codeready_containers/1.23/html/getting_started_guide/networking_gsg#setting-up-remote-server_gsg
