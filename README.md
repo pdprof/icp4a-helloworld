@@ -2,7 +2,7 @@
 
 ## Before begin.
 
-### Add your user as a member of docker and wheel group
+### Add your user as a member of dockerroot and wheel group
 
 command sample Example 
 ```
@@ -10,6 +10,7 @@ yum -y install docker
 su - 
 adduser test
 usermod -a -G docker test
+usermod -a -G dockerroot test
 usermod -a -G wheel test 
 ```
 
@@ -30,7 +31,6 @@ curl -O https://mirror.openshift.com/pub/openshift-v4/clients/crc/latest/crc-lin
 xz -d crc-linux-amd64.tar.xz 
 tar xvf crc-linux-amd64.tar
 ln -fs ./crc-linux-1.20.0-amd64/crc /usr/local/bin/crc
-ln -fs ~/.crc/bin/oc/oc /usr/local/bin/oc
 ```
 
 2. Check your PATH
@@ -62,6 +62,7 @@ Click > Install OpenShift on your laptop
 
 ```
 ./setup-crc.sh
+ln -fs ~/.crc/bin/oc/oc /usr/local/bin/oc
 vi $HOME/kubeadmin
 ./setup-cert.sh
 ./setup-openliberty.sh
