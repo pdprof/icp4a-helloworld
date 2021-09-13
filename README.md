@@ -18,7 +18,7 @@ To check the result
 
 ```
 cat /etc/group
-docker:x:981:test
+dockerroot:x:981:test
 ```
 
 
@@ -62,7 +62,7 @@ Click > Install OpenShift on your laptop
 
 ```
 ./setup-crc.sh
-ln -fs ~/.crc/bin/oc/oc /usr/local/bin/oc
+sudo ln -fs ~/.crc/bin/oc/oc /usr/local/bin/oc
 vi $HOME/kubeadmin
 ./setup-cert.sh
 ./setup-openliberty.sh
