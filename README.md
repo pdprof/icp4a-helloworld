@@ -6,6 +6,7 @@
 
 command sample Example 
 ```
+yum -y install docker
 su - 
 adduser test
 usermod -a -G docker test
@@ -27,7 +28,7 @@ docker:x:981:test
 ```
 curl -O https://mirror.openshift.com/pub/openshift-v4/clients/crc/latest/crc-linux-amd64.tar.xz 
 xz -d crc-linux-amd64.tar.xz 
-tar tvf crc-linux-amd64.tar
+tar xvf crc-linux-amd64.tar
 ln -fs ./crc-linux-1.20.0-amd64/crc /usr/local/bin/crc
 ln -fs ~/.crc/bin/oc/oc /usr/local/bin/oc
 ```
